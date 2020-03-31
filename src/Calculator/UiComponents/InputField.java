@@ -1,4 +1,4 @@
-package UiComponents;
+package Calculator.UiComponents;
 
 import javafx.scene.control.TextField;
 
