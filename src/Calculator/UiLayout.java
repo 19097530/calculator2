@@ -1,11 +1,13 @@
 package Calculator;
 
-import Calculator.UiComponents.InputField;
-import Calculator.UiComponents.PlusButton;
+import Calculator.UiComponents.*;
 import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.Arrays;
 
 public class UiLayout {
 
@@ -13,6 +15,9 @@ public class UiLayout {
     private InputField number1;
     private InputField number2;
     private PlusButton plusButton;
+    private MultiplyButton multiplyButton;
+    private MinusButton minusButton;
+    private DivideButton divideButton;
 
     public UiLayout(Stage primaryStage) {
         root = new Pane();
@@ -23,18 +28,31 @@ public class UiLayout {
 
         number1 = new InputField();
         number2 = new InputField();
-        line1.getChildren().add(number1);
-        line1.getChildren().add(number2);
+        line1.getChildren().addAll(Arrays.asList(number1, number2));
 
-        VBox line2 = new VBox();
+        HBox line2 = new HBox();
         plusButton = new PlusButton(this);
-        line2.getChildren().add(plusButton);
+        multiplyButton = new MultiplyButton(this);
+        divideButton = new DivideButton(this);
+        minusButton = new MinusButton(this);
+        line2.getChildren().addAll(Arrays.asList(plusButton, multiplyButton, divideButton, minusButton));
 
-        root.getChildren().add(line1);
-        root.getChildren().add(line2);
+        VBox idk = new VBox();
+        idk.getChildren().addAll(Arrays.asList(line1, line2));
+        root.getChildren().addAll(idk);
     }
 
     public void sum() {
-
     }
+
+    public void divide() {
+    }
+
+    public void minus() {
+    }
+
+    public void multiply() {
+    }
+
+    public void showResult(String result) {}
 }
