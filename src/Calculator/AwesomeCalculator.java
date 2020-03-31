@@ -1,4 +1,6 @@
-public class Calculator {
+package Calculator;
+
+public class AwesomeCalculator {
 
     public int sum(int a, int b) {
         return a + b;
