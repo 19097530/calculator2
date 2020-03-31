@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 
 public class DivideButton extends Button {
     public DivideButton(UiLayout uilayout) {
-        setText(":");
+        setText("/");
         setOnMouseClicked(mouseEvent -> uilayout.divide());
     }
 }

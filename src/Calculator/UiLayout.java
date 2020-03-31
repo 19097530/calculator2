@@ -26,9 +26,15 @@ public class UiLayout {
         primaryStage.show();
         VBox line1 = new VBox();
 
+        HBox number1Container = new HBox();
+        HBox number2Container = new HBox();
+
         number1 = new InputField();
         number2 = new InputField();
-        line1.getChildren().addAll(Arrays.asList(number1, number2));
+        number1Container.getChildren().addAll(Arrays.asList(new InputLabel("Number 1"), number1));
+        number2Container.getChildren().addAll(Arrays.asList(new InputLabel("Number 2"), number2));
+
+        line1.getChildren().addAll(Arrays.asList(number1Container, number2Container));
 
         HBox line2 = new HBox();
         plusButton = new PlusButton(this);
