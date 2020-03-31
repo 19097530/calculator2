@@ -18,6 +18,8 @@ public class UiLayout {
     private MultiplyButton multiplyButton;
     private MinusButton minusButton;
     private DivideButton divideButton;
+    private AwesomeCalculator calculator;
+    private InputLabel result;
 
     public UiLayout(Stage primaryStage) {
         root = new Pane();
@@ -43,22 +45,51 @@ public class UiLayout {
         minusButton = new MinusButton(this);
         line2.getChildren().addAll(Arrays.asList(plusButton, multiplyButton, divideButton, minusButton));
 
+        HBox line3 = new HBox();
+        result = new InputLabel("Result: ");
+        line3.getChildren().add(result);
+
         VBox idk = new VBox();
-        idk.getChildren().addAll(Arrays.asList(line1, line2));
+        idk.getChildren().addAll(Arrays.asList(line1, line2, line3));
         root.getChildren().addAll(idk);
+        calculator = new AwesomeCalculator();
     }
 
     public void sum() {
+        showResult(calculator.sum(getNumber1(), getNumber2()));
     }
 
     public void divide() {
+        showResult(calculator.divide(getNumber1(), getNumber2()));
     }
 
     public void minus() {
+        showResult(calculator.subtract(getNumber1(), getNumber2()));
     }
 
     public void multiply() {
+        showResult(calculator.multiply(getNumber1(), getNumber2()));
     }
 
-    public void showResult(String result) {}
+    public int getNumber1() {
+        try {
+            return Integer.parseInt(number1.getText());
+        }
+        catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public int getNumber2() {
+        try {
+            return Integer.parseInt(number2.getText());
+        }
+        catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public void showResult(double result) {
+        this.result.setText("Result: " + result);
+    }
 }
