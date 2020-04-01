@@ -56,37 +56,19 @@ public class UiLayout {
     }
 
     public void sum() {
-        showResult(calculator.sum(getNumber1(), getNumber2()));
+        showResult(calculator.sum(number1.getInteger(), number2.getInteger()));
     }
 
     public void divide() {
-        showResult(calculator.divide(getNumber1(), getNumber2()));
+        showResult(calculator.divide(number1.getInteger(), number2.getInteger()));
     }
 
     public void minus() {
-        showResult(calculator.subtract(getNumber1(), getNumber2()));
+        showResult(calculator.subtract(number1.getInteger(), number2.getInteger()));
     }
 
     public void multiply() {
-        showResult(calculator.multiply(getNumber1(), getNumber2()));
-    }
-
-    public int getNumber1() {
-        try {
-            return Integer.parseInt(number1.getText());
-        }
-        catch (Exception e) {
-            return 0;
-        }
-    }
-
-    public int getNumber2() {
-        try {
-            return Integer.parseInt(number2.getText());
-        }
-        catch (Exception e) {
-            return 0;
-        }
+        showResult(calculator.multiply(number1.getInteger(), number2.getInteger()));
     }
 
     public void showResult(double result) {
