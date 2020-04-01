@@ -1,5 +1,6 @@
 package Calculator;
 
+import Calculator.Calculations.Calculation;
 import Calculator.UiComponents.*;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
@@ -55,20 +56,8 @@ public class UiLayout {
         calculator = new AwesomeCalculator();
     }
 
-    public void sum() {
-        showResult(calculator.sum(number1.getInteger(), number2.getInteger()));
-    }
-
-    public void divide() {
-        showResult(calculator.divide(number1.getInteger(), number2.getInteger()));
-    }
-
-    public void minus() {
-        showResult(calculator.subtract(number1.getInteger(), number2.getInteger()));
-    }
-
-    public void multiply() {
-        showResult(calculator.multiply(number1.getInteger(), number2.getInteger()));
+    public void performCalculation(Calculation calculation) {
+        showResult(calculation.calculate(number1.getInteger(), number2.getInteger()));
     }
 
     public void showResult(double result) {
